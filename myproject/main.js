@@ -6,6 +6,11 @@ import { PointLightHelper, Scene } from "three";
 //https://threejs.org/docs/index.html?q=orbit#examples/en/controls/OrbitControls
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
+import spaceImgUrl from "/images/space.jpg";
+import thienImgUrl from "/images/thien.jpg";
+import jupiterImgUrl from "/images/jupiter.jpg";
+import normalImgUrl from "/images/normal.jpg";
+
 // It needs a scene, a camera, and a renderer
 
 //container that holds the camera, objects, and lights
@@ -88,11 +93,11 @@ function addStar() {
 
 Array(200).fill().forEach(addStar);
 
-const spaceTexture = new THREE.TextureLoader().load("../images/space.jpg");
+const spaceTexture = new THREE.TextureLoader().load(spaceImgUrl);
 scene.background = spaceTexture;
 
 //thien texture
-const thienTexture = new THREE.TextureLoader().load("../images/thien.jpg");
+const thienTexture = new THREE.TextureLoader().load(thienImgUrl);
 const thien = new THREE.Mesh(
   new THREE.BoxGeometry(3, 3, 3),
   new THREE.MeshBasicMaterial({ map: thienTexture })
@@ -101,8 +106,8 @@ const thien = new THREE.Mesh(
 scene.add(thien);
 
 //jupiter texture and normal texture
-const jupiterTexture = new THREE.TextureLoader().load("../images/jupiter.jpg");
-const normalTexture = new THREE.TextureLoader().load("../images/normal.jpg");
+const jupiterTexture = new THREE.TextureLoader().load(jupiterImgUrl);
+const normalTexture = new THREE.TextureLoader().load(normalImgUrl);
 const jupiter = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
   new THREE.MeshBasicMaterial({ map: jupiterTexture, normalMap: normalTexture })
